@@ -14,9 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
 
-Route::get('/tasks', 'TaskController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/task', 'TaskController@store');
+Route::get('/tasks',[
+    'uses' => 'TaskController@index',
+    'as' => 'tasks'
+]);
 
-Route::delete('/task/{task}', 'TaskController@destroy');
+Route::post('/tasks',[
+    'uses' => 'TaskController@store',
+    'as' => 'task.add'
+]);
+
+Route::delete('/tasks/{task}', 'TaskController@destroy');

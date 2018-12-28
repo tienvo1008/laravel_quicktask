@@ -25,7 +25,6 @@ class RequestTask extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'descript' => 'max:255',
         ];
     }
 }
